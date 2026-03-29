@@ -19,7 +19,7 @@ export default function MintForm() {
   }
 
   return (
-    <div className="w-full max-w-md space-y-5">
+    <div className="w-full space-y-5">
       <div className="space-y-1">
         <label className="block text-sm font-medium text-gray-700">タイトル</label>
         <input
