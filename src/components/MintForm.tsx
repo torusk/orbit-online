@@ -46,7 +46,6 @@ export default function MintForm() {
           onChange={(e) => setImageUrl(e.target.value)}
           className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gray-400"
         />
-        <p className="text-xs text-gray-400">事前にPinataなどでIPFSにアップロードしてください</p>
       </div>
 
       <button
@@ -54,12 +53,8 @@ export default function MintForm() {
         disabled={!isConnected}
         className="w-full bg-gray-900 text-white rounded-lg py-2.5 text-sm font-medium disabled:opacity-40 disabled:cursor-not-allowed hover:bg-gray-700 transition-colors"
       >
-        ミントする
+        ミント
       </button>
-
-      <p className="text-xs text-gray-400 text-center leading-relaxed">
-        自分のウォレットにミントされます。送りたい場合はウォレットから転送してください。
-      </p>
     </div>
   )
 }
