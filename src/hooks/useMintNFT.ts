@@ -1,19 +1,20 @@
-import { useSignAndExecuteTransaction } from '@mysten/dapp-kit'
-import { useCurrentAccount } from '@mysten/dapp-kit'
+import { useSignAndExecuteTransaction, useCurrentAccount, useSuiClientContext } from '@mysten/dapp-kit'
 import { Transaction } from '@mysten/sui/transactions'
-import { PACKAGE_ID } from '../constants'
+import { PACKAGE_IDS, Network } from '../constants'
 
 export function useMintNFT() {
   const account = useCurrentAccount()
+  const { network } = useSuiClientContext()
   const { mutate: signAndExecute, isPending, isSuccess, isError, error, reset } =
     useSignAndExecuteTransaction()
 
   const mint = (name: string, description: string, imageUrl: string) => {
     if (!account) return
 
+    const packageId = PACKAGE_IDS[network as Network]
     const tx = new Transaction()
     tx.moveCall({
-      target: `${PACKAGE_ID}::studio::mint`,
+      target: `${packageId}::studio::mint`,
       arguments: [
         tx.pure.string(name),
         tx.pure.string(description),

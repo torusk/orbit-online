@@ -1,5 +1,6 @@
 import Header from './components/Header'
 import MintForm from './components/MintForm'
+import Footer from './components/Footer'
 
 export default function App() {
   return (
@@ -10,6 +11,7 @@ export default function App() {
           <MintForm />
         </div>
       </main>
+      <Footer />
     </div>
   )
 }
