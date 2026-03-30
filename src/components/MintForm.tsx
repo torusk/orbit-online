@@ -8,10 +8,10 @@ export default function MintForm() {
 
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
-  const [imageUrl, setImageUrl] = useState('')
+  const [imageUrl, setImageUrl] = useState('ipfs://')
 
   const isConnected = account !== null
-  const canSubmit = isConnected && !isPending && title.trim() && imageUrl.trim()
+  const canSubmit = isConnected && !isPending && title.trim() && imageUrl.trim().length > 7
 
   const handleMint = () => {
     reset()
@@ -48,7 +48,7 @@ export default function MintForm() {
         <label className="block text-sm font-medium text-gray-700">画像URL</label>
         <input
           type="text"
-          placeholder="ipfs://... または https://..."
+          placeholder="ipfs://Qm..."
           value={imageUrl}
           onChange={(e) => setImageUrl(e.target.value)}
           disabled={isPending}
